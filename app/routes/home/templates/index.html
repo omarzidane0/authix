@@ -1,0 +1,41 @@
+{% extends "base.html"%}
+{% block style %}
+            body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            text-align: center;
+            padding: 50px;
+        }
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+        .logout-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .logout-btn:hover {
+            background-color: #c0392b;
+        }
+{% endblock %}
+{%block content%}
+        <div class="card">
+        <h1>Welcome to My Website</h1>
+        <p>This is a simple Home page.</p>
+        <form action="/logout" method="post">
+                <input id="csrf" type="hidden" name="csrf_token" value="{{ csrf_token }}"/>
+            <button class="logout-btn">Logout</button>
+        </form>
+    </div>
+{%endblock%}
+{%block scripts%}
+{%endblock%}
